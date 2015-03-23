@@ -12,9 +12,9 @@ Change Log:
         ~Save Server Password, Channel, Channel Password
 
 Supported VOIP:
- Mumble
- TeamSpeak 3
- Ventrilo
+ ~Mumble
+ ~TeamSpeak 3
+ ~Ventrilo
 
 What this plugin does:
 This plugin was created to save server information and allow the Admin to add the server information and add it to the site. What does that mean, it means this plugin will create a link on your website that a user can click on and join that voice server.
