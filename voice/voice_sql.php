@@ -13,5 +13,8 @@ CREATE TABLE `voice_exesystem` (
   `voice_channel` varchar(255) DEFAULT NULL,
   `voice_channelpass` varchar(255) DEFAULT NULL,
   `voice_type_version` int(12) unsigned NOT NULL,
+  `voice_listname` int(10) unsigned NOT NULL,
+  `voice_qname` varchar(255) DEFAULT NULL,
+  `voice_qpass` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`voice_id`)
 ) ENGINE=MyISAM;

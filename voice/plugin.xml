@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Plugin name="Voice eXeSystem" lan="LAN_PLUGIN_VOI_NAME" version="1.0" date="2015-02-15" compatibility="2.0" installRequired="true" >
+<e107Plugin name="Voice eXeSystem" lan="LAN_PLUGIN_VOI_NAME" version="1.1" date="2015-03-31" compatibility="2.0" installRequired="true" >
 	<author name="LaocheXe" url="http://defiantz.org" />
 	<summary lan="">Theme ShortCode Generator for TeamSpeak3, Ventrilo, or Mumble</summary>
 	<description lan="">Save TeamSpeak3/Ventrilo/Mumble Server Information and enables the user to add a join button to that server on the theme's shortcode area.</description>
@@ -10,7 +10,7 @@
 	<category>tools</category>
 	<copyright>GNU General Public License v2</copyright>
 	<adminLinks>
-		<link url="admin_config.php" description="" icon="images/icon_32.png" iconSmall="images/icon_16.png" primary="true" >LAN_CONFIGURE</link>
+		<link url="admin_config.php" description="" icon="/images/icon_32.png" iconSmall="/images/icon_16.png" primary="true" >LAN_CONFIGURE</link>
 	</adminLinks>
 	
 </e107Plugin>

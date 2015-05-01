@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "untitled-font-3";
+  /*
+  src:url("http://defiantz.org/e107_plugins/voice/fonts/untitled-font-3.eot");
+  src:url("http://defiantz.org/e107_plugins/voice/fonts/fonts/untitled-font-3.eot?#iefix") format("embedded-opentype"),
+    url("http://defiantz.org/e107_plugins/voice/fonts/fonts/untitled-font-3.woff") format("woff"),
+    url("http://defiantz.org/e107_plugins/voice/fonts/fonts/untitled-font-3.ttf") format("truetype"),
+    url("http://defiantz.org/e107_plugins/voice/fonts/fonts/untitled-font-3.svg#untitled-font-3") format("svg");
+	*/
+	/*
+  src:url("https://fontastic.s3.amazonaws.com/zJpTUY3o6Cjvk2n9CJBdyE/fonts/1427755787.eot");
+  src:url("https://fontastic.s3.amazonaws.com/zJpTUY3o6Cjvk2n9CJBdyE/fonts/1427755787.eot?#iefix") format("embedded-opentype"),
+    url("https://fontastic.s3.amazonaws.com/zJpTUY3o6Cjvk2n9CJBdyE/fonts/1427755787.woff") format("woff"),
+    url("https://fontastic.s3.amazonaws.com/zJpTUY3o6Cjvk2n9CJBdyE/fonts/1427755787.ttf") format("truetype"),
+    url("https://fontastic.s3.amazonaws.com/zJpTUY3o6Cjvk2n9CJBdyE/fonts/1427755787.svg#1427755787") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  */
+  src:url(fonts/untitled-font-3.eot");
+  src:url("fonts/fonts/untitled-font-3.eot?#iefix") format("embedded-opentype"),
+    url("fonts/fonts/untitled-font-3.woff") format("woff"),
+    url("fonts/fonts/untitled-font-3.ttf") format("truetype"),
+    url("fonts/fonts/untitled-font-3.svg#untitled-font-3") format("svg");
+}
+
+[data-icon]:before {
+  font-family: "untitled-font-3" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "untitled-font-3" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*
+.icon-ble:before {
+  content: "m";
+}
+.icon-vent:before {
+  content: "v";
+}
+.icon-ts3:before {
+  content: "t";
+}
+*/
