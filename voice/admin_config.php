@@ -61,7 +61,8 @@ class voice_exesystem_ui extends e_admin_ui
 	//	protected $batchCopy		= true;		
 	//	protected $sortField		= 'somefield_order';
 	//	protected $orderStep		= 10;
-		protected $tabs			= array(LAN_VOI_NORM_T,LAN_VOI_BLE_V,LAN_VOI_TS3_V,LAN_VOI_VENT_V); // Use 'tab'=>0  OR 'tab'=>1 in the $fields below to enable. 
+	//	protected $tabs			= array(LAN_VOI_NORM_T,LAN_VOI_BLE_V,LAN_VOI_TS3_V,LAN_VOI_VENT_V); // Use 'tab'=>0  OR 'tab'=>1 in the $fields below to enable. 
+		protected $tabs			= array(LAN_VOI_NORM_T,LAN_VOI_TYPE_MUM,LAN_VOI_TYPE_TS3,LAN_VOI_TYPE_VEN); // Use 'tab'=>0  OR 'tab'=>1 in the $fields below to enable. 
 		
 	//	protected $listQry      	= "SELECT * FROM #tableName WHERE field != '' "; // Example Custom Query. LEFT JOINS allowed. Should be without any Order or Limit.
 	
@@ -80,7 +81,7 @@ class voice_exesystem_ui extends e_admin_ui
 		  'voice_password' =>   array ( 'title' => LAN_VOI_SERPASS, 'type' => 'text', 'tab' => 0, 'data' => 'str', 'width' => 'auto', 'inline' => true, 'help' => LAN_VOI_INFO_PASS, 'readParms' => '', 'writeParms' => '', 'class' => 'center', 'thclass' => 'center',  ),
 		  'voice_channel' =>   array ( 'title' => LAN_VOI_CHANNEL, 'type' => 'text', 'tab' => 0, 'data' => 'str', 'width' => 'auto', 'inline' => true, 'help' => LAN_VOI_INFO_CNL, 'readParms' => '', 'writeParms' => '', 'class' => 'center', 'thclass' => 'center',  ),
 		  'voice_channelpass' =>   array ( 'title' => LAN_VOI_CHAPASS, 'type' => 'text', 'tab' => 0, 'data' => 'str', 'width' => 'auto', 'inline' => true, 'help' => LAN_VOI_INFO_CNP, 'readParms' => '', 'writeParms' => '', 'class' => 'center', 'thclass' => 'center',  ),
-		  'voice_type_version' =>   array ( 'title' => LAN_VOI_TYPEVERSION, 'type' => 'dropdown', 'tab' => 0, 'data' => 'int', 'width' => 'auto', 'inline' => true, 'help' => LAN_VOI_INFO_BLEV, 'readParms' => '', 'writeParms' => '', 'class' => 'center', 'thclass' => 'center',  ),
+		  'voice_type_version' =>   array ( 'title' => LAN_VOI_TYPEVERSION, 'tab' => 1, 'type' => 'dropdown', 'data' => 'int', 'width' => 'auto', 'inline' => true, 'help' => LAN_VOI_INFO_BLEV, 'readParms' => '', 'writeParms' => '', 'class' => 'center', 'thclass' => 'center',  ),
 		  'voice_listname' =>   array ( 'title' => LAN_VOI_LISTNAME, 'type' => 'dropdown', 'tab' => 0, 'data' => 'int', 'width' => 'auto', 'filter' => true, 'inline' => true, 'help' => LAN_VOI_INFO_URL, 'readParms' => '', 'writeParms' => '', 'class' => 'left', 'thclass' => 'left',  ),
 		  'voice_qname' =>   array ( 'title' => LAN_VOI_Q_NAME, 'tab' => 2, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'inline' => true, 'help' => LAN_VOI_INFO_QNAME, 'readParms' => '', 'writeParms' => '', 'class' => 'left', 'thclass' => 'left',  ),
 		  'voice_qpass' =>   array ( 'title' => LAN_VOI_Q_PASS, 'tab' => 2, 'type' => 'text', 'tab' => 2, 'data' => 'str', 'width' => 'auto', 'inline' => true, 'help' => LAN_VOI_INFO_QPASS, 'readParms' => '', 'writeParms' => '', 'class' => 'center', 'thclass' => 'center',  ),		  		  

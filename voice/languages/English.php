@@ -87,4 +87,6 @@ define("LAN_VOI_BLE_V","Mumble Viewer");
 define("LAN_VOI_TS3_V", "TeamSpeak 3 Viewer");
 define("LAN_VOI_VENT_V", "Ventrilo Viewer");
 
+define("LAN_VOICE_VIEWERS", "Viewers");
+
 ?>

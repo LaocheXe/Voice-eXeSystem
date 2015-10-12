@@ -105,7 +105,7 @@ class voice_shortcodes extends e_shortcode
 						$linkName = $sName;
 					}
 
-					// Would be Mumble
+					// Mumble
 					if($sserverType == 1)
 					{
 						$sType = "mumble://";
@@ -169,7 +169,7 @@ class voice_shortcodes extends e_shortcode
 							}
 						}
 					}
-					// Would be TeamSpeak3
+					// TeamSpeak3
 					elseif($sserverType == 2)
 					{
 						if(!USERID)
@@ -219,7 +219,7 @@ class voice_shortcodes extends e_shortcode
 							}
 						}
 					}
-					// Would be Ventrilo
+					// Ventrilo
 					elseif($sserverType == 3)
 					{
 						$btnClass3 = '<span class="icon-vent"></span> ';
@@ -278,6 +278,10 @@ class voice_shortcodes extends e_shortcode
 			<li>
 			'.$voice_exe.'
 			<p></p>
+			</li>
+			<li class="divider"></li>
+			<li>
+			<a href="'.e_PLUGIN.'voice/voice.php">'.LAN_VOICE_VIEWERS.'</a><br />
 			</li>
 			</ul>
 			';
