@@ -52,7 +52,6 @@ class voice_shortcodes extends e_shortcode
 					$sHost = $row['voice_ip'];
 					$sPort = $row['voice_port'];
 					$sPass = $row['voice_password'];
-					$msc = $row['voice_msc'];
 					$sChan = $row['voice_channel'];
 					$sChanp = $row['voice_channelpass'];
 					$sbleType = $row['voice_type_version'];
@@ -263,11 +262,12 @@ class voice_shortcodes extends e_shortcode
 						}
 					}
 				}
-				elseif ($row['voice_enable_msc'] == 1)
+				else if ($row['voice_enable_msc'] == 1)
 				{
-					$msc_decode = html_entity_decode($msc);
-					// MSC is Enabled
-					$voice_exe .= $msc_decode;
+				
+					$msc = $row['voice_msc'];
+					// MSC is Enabled;
+					$voice_exe .= e107::getParser()->toHTML($msc);
 				}
 			}
 		}
@@ -281,7 +281,6 @@ class voice_shortcodes extends e_shortcode
 			</li>
 			</ul>
 			';
-			
 		return $text;
 	}
 }

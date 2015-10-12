@@ -28,11 +28,13 @@ define("LAN_VOI_SELECT", "Select...");
 define("LAN_VOI_TYPE_MUM", "Mumble");
 define("LAN_VOI_TYPE_TS3", "TeamSpeak 3");
 define("LAN_VOI_TYPE_VEN", "Ventrilo");
+define("LAN_VOI_TYPE_UNK", "Unlisted");
 // Mumble Version
 define("LAN_VOI_MUM_V1", "v1.1.0");
 define("LAN_VOI_MUM_V2", "v1.2.0");
-
+// Tage Voice Plugin Name
 define("LAN_VOIPLUG_NAME", "Voice");
+define("LAN_VOI_VIEWERS", "Voice Viewers List");
 // Information Section
 define("LAN_VOI_INFO_01", "Created By:");
 define("LAN_VOI_INFO_02", "E-Mail:");

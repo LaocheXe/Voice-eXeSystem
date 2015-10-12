@@ -11,8 +11,5 @@
  * www.defiantz.org
  *
 */
-
 e107::css('voice','voice.css');
-
 ?>
-

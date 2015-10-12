@@ -57,22 +57,11 @@ class theme_shortcodes extends e_shortcode
 			if(e107::isInstalled('voice'))
 			{
 				include_lan(e_PLUGIN."voice/languages/".e_LANGUAGE.".php");
-				$text .= '
-				<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'.LAN_VOIPLUG_NAME.' <b class="caret"></b></a>
-				<ul class="dropdown-menu">
-				<li>
-				{VOICE_EXE}
-				';
-			
-				$text .= "</li>
-				<p></p>
-				</li>
-				</ul>";
+				$text .='{VOICE_EXE}';
 			}
 			else
 			{
-				$text .="</ul>";	
+				$text .="</ul>";
 			}
 ////*********** Set To True To Display Text ***********////
 			return $tp->parseTemplate($text, true, $login_menu_shortcodes);
@@ -105,23 +94,11 @@ class theme_shortcodes extends e_shortcode
 			if(e107::isInstalled('voice'))
 			{
 				include_lan(e_PLUGIN."voice/languages/".e_LANGUAGE.".php");
-				$text .= '
-				<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'.LAN_VOIPLUG_NAME.' <b class="caret"></b></a>
-				<ul class="dropdown-menu">
-				<li>
-				{VOICE_EXE}
-				';
-				$text .= "</li>
-				<p></p>
-				</li>
-				</ul>";
+				$text .='{VOICE_EXE}';
 			}
 			else
 			{
-				$text .="
-				</ul>
-				";	
+				$text .="</ul>";
 			}
 
 		return $tp->parseTemplate($text,true,$login_menu_shortcodes);
