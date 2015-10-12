@@ -7,6 +7,9 @@ Release Date: 2015-02-15<br />
 </p>
 <p>
 Change Log:<br />
+   Version - 1.5<br />
+      ~Added TeamSpeak 3 Viewer (Simple)<br />
+      
    Version - 1.0<br />
         ~Released Version<br />
         ~Save Server Info (IP/Host, Port, QPort)<br />
@@ -17,6 +20,7 @@ Supported VOIP:<br />
  ~Mumble<br />
  ~TeamSpeak 3<br />
  ~Ventrilo<br />
+ ~~Custom URL allows up to any VOIP that uses URLs<br />
 </p>
 <p>
 What this plugin does:<br />
