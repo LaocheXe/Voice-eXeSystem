@@ -281,7 +281,7 @@ class voice_shortcodes extends e_shortcode
 			</li>
 			<li class="divider"></li>
 			<li>
-			<a href="'.e_PLUGIN.'voice/voice.php">'.LAN_VOICE_VIEWERS.'</a><br />
+			<a href="'.e_PLUGIN.'voice/voice.php">'.LAN_VOICE_VIEWERS.'</a>
 			</li>
 			</ul>
 			';
