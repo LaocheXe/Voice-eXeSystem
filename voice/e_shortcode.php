@@ -31,7 +31,18 @@ class voice_shortcodes extends e_shortcode
 	public		$vtPass;		// Server Password
 	public		$vtChan;		// Server Channel
 	public		$vtChanp;		// Server Channel Password
-	
+	// Discord
+	public		$disName;		// Server Name
+	//public		$disJAPI;		// Server JSON API
+	public		$disID;			// Server ID
+	public		$disInvitecode; // Server Invite Code
+	public		$disWidth;		// Server Width
+	public		$disHeight;		// Server Height
+	public		$disTheme;		// Server Theme
+	public		$disTrans;		// Server Enable Transparent
+	public		$disiFrame;		// Server iFrame
+	public		$disFrame;		// Server Frame Border
+
 	
 	public function __construct()
 	{
@@ -41,7 +52,7 @@ class voice_shortcodes extends e_shortcode
 	function sc_voice_exe()
 	{
 		$sql = e107::getDB();
-		$sql->select('voice_exesystem', 'voice_name, voice_type, voice_ip, voice_port, voice_qport, voice_enable_sc, voice_enable_msc, voice_msc, voice_password, voice_channel, voice_channelpass, voice_type_version, voice_listname'); 
+		$sql->select('voice_exesystem', 'voice_name, voice_type, voice_ip, voice_port, voice_qport, voice_enable_sc, voice_enable_msc, voice_msc, voice_password, voice_channel, voice_channelpass, voice_type_version, voice_listname, voice_discord_id, voice_discord_invitecode, voice_discord_theme, voice_discord_width, voice_discord_height, voice_discord_transp, voice_discord_iframe, voice_discord_frameborder'); 
 		while($row = $sql->fetch())
 		{
 			if($row['voice_enable_sc'] == 1)
@@ -57,6 +68,15 @@ class voice_shortcodes extends e_shortcode
 					$sbleType = $row['voice_type_version'];
 					$linkUrlType = $row['voice_listname'];
 					$sserverType = $row['voice_type'];
+					$disID = $row['voice_discord_id'];
+					//$disJAPI = $row['voice_discord_japi'];
+					$disInvitecode = $row['voice_discord_invitecode'];
+					$disWidth = $row['voice_discord_width'];
+					$disHeight = $row['voice_discord_height'];
+					$disTheme = $row['voice_discord_theme'];
+					$disTrans = $row['voice_discord_transp'];
+					$disiFrame = $row['voice_discord_iframe'];
+					$disFrame = $row['voice_discord_frameborder'];
 					//Mumble
 					//$blePort = "?port=".$sPort."";		// Server Port
 					//$bleNickname = "";
@@ -90,6 +110,10 @@ class voice_shortcodes extends e_shortcode
 					elseif($sserverType == 3) // Ventrilo
 					{
 						$nameLink = LAN_VOI_TYPE_VEN;
+					}
+					elseif($serverType == 4) // Discord
+					{
+						$nameLink = LAN_VOI_TYPE_DIS;
 					}
 					// Get Type Name
 					if($linkUrlType == 0)
@@ -261,8 +285,59 @@ class voice_shortcodes extends e_shortcode
 							}
 						}
 					}
+					// Discord
+					elseif($serverType == 4)
+					{
+						if(!USERID)
+						{
+							$userName = "";
+						}
+						else
+						{
+							$userName = "".USERNAME."";
+						}
+						if($disTrans == 0)
+						{
+							$disTransparent = 'false';
+						}
+						elseif($disTrans == 1)
+						{
+							$disTransparent = 'true';
+						}
+						if($disTheme == 0)
+						{
+							$disSTheme = "light";
+						}
+						elseif($disTheme == 1)
+						{
+							$disSTheme = "dark";
+						}
+						$btnClass3 = '<span class="icon-vent"></span> ';
+						$sType = "https://";
+						if(!empty($disID))
+						{
+							if(!empty($disInvitecode))
+							{
+								if($disiFrame == 0)
+								{
+									$voice_exe .='<a '.$btnClass1.'href="'.$sType.'discordapp.com/invite/'.$disInvitecode.'?utm_source=Voice_eXe%20e107%20Plugin&utm_medium=Connect">'.$btnClass3.''.$linkName.'</a>';
+								}
+								else
+								{
+									$voice_exe .='<iframe src="'.$sType.'discordapp.com/widget?id='.$disID.'&theme='.$disSTheme.'&username='.$userName.'" width="'.$disWidth.'" height="'.$sdisHeight.'" allowtransparency="'.$disTransparent.'" frameborder="'.$disFrame.'"></iframe>';
+								}
+							}
+							else
+							{
+								if($disiFrame == 1)
+								{
+									$voice_exe .='<iframe src="'.$sType.'discordapp.com/widget?id='.$disID.'&theme='.$disSTheme.'&username='.$userName.'" width="'.$disWidth.'" height="'.$sdisHeight.'" allowtransparency="'.$disTransparent.'" frameborder="'.$disFrame.'"></iframe>';
+								}
+							}
+						}
+					}
 				}
-				else if ($row['voice_enable_msc'] == 1)
+				elseif ($row['voice_enable_msc'] == 1)
 				{
 				
 					$msc = $row['voice_msc'];
@@ -287,5 +362,11 @@ class voice_shortcodes extends e_shortcode
 			';
 		return $text;
 	}
+	
+	function sc_voice_exe_legacy()
+	{
+		
+	}
 }
+
 ?>

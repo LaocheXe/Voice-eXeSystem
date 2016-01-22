@@ -28,6 +28,7 @@ define("LAN_VOI_SELECT", "Select...");
 define("LAN_VOI_TYPE_MUM", "Mumble");
 define("LAN_VOI_TYPE_TS3", "TeamSpeak 3");
 define("LAN_VOI_TYPE_VEN", "Ventrilo");
+define("LAN_VOI_TYPE_DIS", "Discord");
 define("LAN_VOI_TYPE_UNK", "Unlisted");
 // Mumble Version
 define("LAN_VOI_MUM_V1", "v1.1.0");
@@ -88,5 +89,29 @@ define("LAN_VOI_TS3_V", "TeamSpeak 3 Viewer");
 define("LAN_VOI_VENT_V", "Ventrilo Viewer");
 
 define("LAN_VOICE_VIEWERS", "Viewers");
+
+// Discord
+define("LAN_VOI_DISID", "Server ID");
+define("LAN_VOI_DISINVITE", "Invite Code");
+define("LAN_VOI_JAPI", "JASON API");
+define("LAN_VOI_DISTHEME", "Theme");
+define("LAN_VOI_DISWIDTH", "Width");
+define("LAN_VOI_DISHEIGHT", "Height");
+define("LAN_VOI_DISTRANS", "Enable Transparency");
+define("LAN_VOI_DISIFRAME", "Enable iFrame");
+define("LAN_VOI_DISFBORDER", "Frame Border");
+
+define("LAN_VOI_DI_LIGHT", "Light");
+define("LAN_VOI_DI_DARK", "Dark");
+
+define("LAN_VOI_INFO_VDID", "Server ID, can be found in Server Settings > Widget");
+define("LAN_VOI_INFO_VDINTE", "Invite Code, Make the invite code to the server last forever");
+define("LAN_VOI_INFO_VDJAPI", "Jason API, can be found in Server Settings > Widget");
+define("LAN_VOI_INFO_VDTHEM", "Select Light or Dark, this is for the iFrame");
+define("LAN_VOI_INFO_VDWIDTH", "Default: 350, this is for the iFrame");
+define("LAN_VOI_INFO_VDHEIGHT", "Default: 500, this is for the iFrame");
+define("LAN_VOI_INFO_VDTRANS", "Enable or Display the Transparency of the iFrame background");
+define("LAN_VOI_INFO_VDIFRAME", "Enable or Disable the iFrame in the shortcode, will use a normal link if invite code has been entered");
+define("LAN_VOI_INFO_VDFBOR", "Default: 0, Frame Border size, this is for the iFrame ");
 
 ?>

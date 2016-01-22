@@ -15,6 +15,14 @@ CREATE TABLE `voice_exesystem` (
   `voice_type_version` int(12) unsigned NOT NULL,
   `voice_listname` int(10) unsigned NOT NULL,
   `voice_qname` varchar(255) DEFAULT NULL,
-  `voice_qpass` varchar(255) DEFAULT NULL,
+  `voice_discord_id` varchar(128) DEFAULT NULL,
+  `voice_discord_invitecode` varchar(255) DEFAULT NULL,
+  `voice_discord_japi` varchar(200) DEFAULT NULL,
+  `voice_discord_theme` varchar(15) DEFAULT NULL,
+  `voice_discord_width` int(12) unsigned NOT NULL,
+  `voice_discord_height` int(12) unsigned NOT NULL,
+  `voice_discord_transp` int(10) unsigned NOT NULL,
+  `voice_discord_iframe` int(10) unsigned NOT NULL,
+  `voice_discord_frameborder` int(12) unsigned NOT NULL,
   PRIMARY KEY (`voice_id`)
 ) ENGINE=MyISAM;

@@ -42,6 +42,9 @@ function define_sTypeName($sType)
     case 3:
       $sTypeName = LAN_VOI_TYPE_VEN;
       break;
+	case 4;
+	  $sTypeName = LAN_VOI_TYPE_DIS;
+	  break;
   }
  return $sTypeName;
 }
@@ -57,6 +60,9 @@ function define_sButton($sType)
 	  $sButton = '<span class="icon-ts3"></span> ';
       break;
     case 3:
+	  $sButton = '<span class="icon-vent"></span> ';
+      break;
+	case 4:
 	  $sButton = '<span class="icon-vent"></span> ';
       break;
 	}
@@ -75,13 +81,16 @@ function define_sUrlA($sType)
     case 3:
 	  $sUrlA = 'vent/vent.php?id=';
       break;
+	case 4:
+	  $sUrlA = 'dis/dis.php?id=';
+      break;  
 	}
 	return $sUrlA;
 }
 
 // Server types: 0, 1, 2, 3. They are put into the variable $i and we loop through them.
 // This could be made dynamic when the voice types are stored in a separate database table. (ie. retrieve those values and loop through them)
-for ($i = 1; $i <= 3; $i++)
+for ($i = 1; $i <= 4; $i++)
 {
   // Retrieve servers with specific voice_type and store them in the $server array.
   $servers    = $sql->retrieve('voice_exesystem', 'voice_id, voice_name', 'voice_type = '.$i.'', true);
