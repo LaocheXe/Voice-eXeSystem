@@ -112,6 +112,8 @@ define("LAN_VOI_INFO_VDWIDTH", "Default: 350, this is for the iFrame");
 define("LAN_VOI_INFO_VDHEIGHT", "Default: 500, this is for the iFrame");
 define("LAN_VOI_INFO_VDTRANS", "Enable or Display the Transparency of the iFrame background");
 define("LAN_VOI_INFO_VDIFRAME", "Enable or Disable the iFrame in the shortcode, will use a normal link if invite code has been entered");
-define("LAN_VOI_INFO_VDFBOR", "Default: 0, Frame Border size, this is for the iFrame ");
+define("LAN_VOI_INFO_VDFBOR", "Default: 0, Frame Border size, this is for the iFrame");
+
+define("LAN_VOI_UPDATE", "Update");
 
 ?>
