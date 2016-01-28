@@ -14,7 +14,7 @@ include_lan(e_PLUGIN.'voice/languages/'.e_LANGUAGE.'.php');
 
 class voice_adminSync extends e_admin_dispatcher
 {
-	
+		public $_options = array();
 		protected $modes = array(	
 	
 		'main'	=> array(
@@ -46,19 +46,24 @@ class voice_sync_exesystem_ui extends e_admin_ui
 	
 	public function syncPage()
     {
-     //$mainadmin = e_SELF.'/../admin_config.php?mode=main&action=list';
-  
-     //header("location:".$mainadmin); exit; 
-	 
 	 	$ns = e107::getRender();
-	 	//$text = 'Hello World!';
-		
-
-		//$text .= '<button type="button"> Click Me </button>';
-		$text .= 'Here is the link to sync the voice plugin - just a test <br />
-		<';
+		$text .= 'Here is the link to sync the voice plugin - just a test <br />';
 		
 		
+		$this->_options['github'] = array('diz'=>"<span class='label label-warning'>Developer Mode Only</span> Overwrite local files with the latest from github.", 'label'=> 'Sync with Github' );
+		if(!empty($_POST['githubSyncProcess']))
+		{
+			$this->githubSyncProcess();
+			return;
+		}
+		if(varset($_GET['mode']) == 'github')
+		{
+			$this->githubSync();
+		}
+		
+		
+				
+		/* Need for Rendering*/
 		$ns->tablerender('Sync',$text);	
     } 
 	
