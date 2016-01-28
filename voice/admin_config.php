@@ -34,7 +34,8 @@ class voice_admin extends e_admin_dispatcher
 		'main/create'		=> array('caption'=> LAN_CREATE, 'perm' => 'P'),
 		'main/info'			=> array('caption'=> LAN_VOI_INFO_NAME, 'perm' => 'P'),
 		'main/example'		=> array('caption'=> LAN_VOI_EXAMPLE, 'perm' => 'P'),
-		'main/update'		=> array('caption'=> LAN_VOI_UPDATE, 'perm' => 'P')
+		'main/update'		=> array('caption'=> LAN_VOI_UPDATE, 'perm' => 'P'),
+		'main/sync'		=> array('caption'=> LAN_VOI_UPDATE, 'perm' => 'P')
 
 		// 'main/custom'		=> array('caption'=> 'Custom Page', 'perm' => 'P')
 	);
@@ -110,10 +111,7 @@ class voice_exesystem_ui extends e_admin_ui
 			$this->fields['voice_type']['writeParms'] = array(LAN_VOI_SELECT, LAN_VOI_TYPE_MUM, LAN_VOI_TYPE_TS3, LAN_VOI_TYPE_VEN, LAN_VOI_TYPE_DIS); // Example Drop-down array. 
 			$this->fields['voice_type_version']['writeParms'] = array(LAN_VOI_SELECT, LAN_VOI_MUM_V1, LAN_VOI_MUM_V2); // Example Drop-down array. 
 			$this->fields['voice_listname']['writeParms'] = array(LAN_VOI_SELECT, LAN_VOI_LU_STYPE, LAN_VOI_LU_SNAME);
-			$this->fields['voice_discord_theme']['writeParms'] = array(LAN_VOI_DI_LIGHT, LAN_VOI_DI_DARK);
-			//$this->fields['voice_discord_transp']['writeParms'] = array(LAN_VOI_DI_FALSE, LAN_VOI_DI_TRUE);
-			//$this->fields['voice_discord_iframe']['writeParms'] = array(LAN_VOI_DI_DISABLE, LAN_VOI_DI_ENABLE);
-	
+			$this->fields['voice_discord_theme']['writeParms'] = array(LAN_VOI_DI_LIGHT, LAN_VOI_DI_DARK);	
 		}
 		
 		// Infomarion Section 
@@ -377,9 +375,9 @@ class voice_exesystem_ui extends e_admin_ui
 					//global $mySQLdefaultdb;
 					//$this->_utf8_exclude = array(MPREFIX."core");
 					
-					$this->_options['github'] = array('diz'=>"<span class='label label-warning'>Developer Mode Only</span> Overwrite local files with the latest from github.", 'label'=> 'Sync with Github' );
+					//$this->_options['github'] = array('diz'=>"<span class='label label-warning'>Developer Mode Only</span> Overwrite local files with the latest from github.", 'label'=> 'Sync with Github' );
 					
-					$this->_options = multiarray_sort($this->_options, 'label');
+					//$this->_options = multiarray_sort($this->_options, 'label');
 					
 					if(!empty($_POST['githubSyncProcess']))
 					{
@@ -412,14 +410,14 @@ class voice_exesystem_ui extends e_admin_ui
 						{
 							unlink(e_TEMP."e107-master.zip");
 						}
-
+																// 'https://github.com/LaocheXe/Voice-eXeSystem/archive/master.zip', 'Voice-eXeSystem-master.zip', 'temp'
 						$result = e107::getFile()->getRemoteFile('https://codeload.github.com/e107inc/e107/zip/master', 'e107-master.zip', 'temp');
 
 						if($result == false)
 						{
 							e107::getMessage()->addError( "Couldn't download .zip file");
 						}
-						
+									// 'Voice-eXeSystem-master.zip'
 						$localfile = 'e107-master.zip';
 						
 						chmod(e_TEMP.$localfile, 0755);
@@ -504,7 +502,15 @@ class voice_exesystem_ui extends e_admin_ui
 		//	}
 			
 			//$text = 'Hello World!';
+			$ns->tablerender('Update',$text);	
+		}
+		
+		public function syncPage()
+		{
+			$ns = e107::getRender();
+			$text = 'Hello World!';
 			$ns->tablerender('Hello',$text);	
+			
 		}		
 	/*	
 		// optional - override edit page. 
