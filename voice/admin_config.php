@@ -34,7 +34,6 @@ class voice_admin extends e_admin_dispatcher
 		'main/create'		=> array('caption'=> LAN_CREATE, 'perm' => 'P'),
 		'main/info'			=> array('caption'=> LAN_VOI_INFO_NAME, 'perm' => 'P'),
 		'main/example'		=> array('caption'=> LAN_VOI_EXAMPLE, 'perm' => 'P'),
-		'main/update'		=> array('caption'=> LAN_VOI_UPDATE, 'perm' => 'P'),
 		'main/sync'		=> array('caption'=> LAN_VOI_UPDATE, 'perm' => 'P')
 
 		// 'main/custom'		=> array('caption'=> 'Custom Page', 'perm' => 'P')
@@ -359,158 +358,11 @@ class voice_exesystem_ui extends e_admin_ui
 			';
 			$ns->tablerender(LAN_VOI_EXAMPLE,$text);	
 		}
-		
-		public function updatePage()
-		{
-			$ns = e107::getRender();
-			//$st = new system_tools;
-			
-			//class system_tools
-			//{
-				//public $_options = array();
-				//private $_utf8_exclude = array();
-				
-				//function __construct()
-				//{
-					//global $mySQLdefaultdb;
-					//$this->_utf8_exclude = array(MPREFIX."core");
-					
-					//$this->_options['github'] = array('diz'=>"<span class='label label-warning'>Developer Mode Only</span> Overwrite local files with the latest from github.", 'label'=> 'Sync with Github' );
-					
-					//$this->_options = multiarray_sort($this->_options, 'label');
-					
-					if(!empty($_POST['githubSyncProcess']))
-					{
-						$this->githubSyncProcess();
-						return;
-					}
-					
-					if(varset($_GET['mode']) == 'github')
-					{
-						$this->githubSync();
-					}
-					
-					function githubSync()
-					{
-						$frm = e107::getForm();
-						$mes = e107::getMessage();
-						
-						$message = $frm->open('githubSync');
-						$message .= "<p>This will download the latest .zip file from github to <b>".e_SYSTEM."/temp</b> and then unzip it, overwriting any existing files that it finds on your server. It will take into account any custom folders you may have set in e107_config.php. </p>";
-						$message .= $frm->button('githubSyncProcess',1,'delete', "Overwrite Files");
-						$message .= $frm->close();
-						
-						$mes->addInfo($message);
-						
-						e107::getRender()->tablerender(DBLAN_10.SEP."Sync with Github", $mes->render());	
-					}
-					function githubSyncProcess()
-					{
-						if(file_exists(e_TEMP."e107-master.zip"))
-						{
-							unlink(e_TEMP."e107-master.zip");
-						}
-																// 'https://github.com/LaocheXe/Voice-eXeSystem/archive/master.zip', 'Voice-eXeSystem-master.zip', 'temp'
-						$result = e107::getFile()->getRemoteFile('https://codeload.github.com/e107inc/e107/zip/master', 'e107-master.zip', 'temp');
 
-						if($result == false)
-						{
-							e107::getMessage()->addError( "Couldn't download .zip file");
-						}
-									// 'Voice-eXeSystem-master.zip'
-						$localfile = 'e107-master.zip';
-						
-						chmod(e_TEMP.$localfile, 0755);
-						require_once(e_HANDLER."pclzip.lib.php");
-						
-						$newFolders = array(
-							'e107-master/e107_admin/'       => e_BASE.e107::getFolder('ADMIN'),
-							'e107-master/e107_core/'        => e_BASE.e107::getFolder('CORE'),
-							'e107-master/e107_docs/'        => e_BASE.e107::getFolder('DOCS'),
-							'e107-master/e107_handlers/'    => e_BASE.e107::getFolder('HANDLERS'),
-							'e107-master/e107_images/'      => e_BASE.e107::getFolder('IMAGES'),
-							'e107-master/e107_languages/'   => e_BASE.e107::getFolder('LANGUAGES'),
-							'e107-master/e107_media/'       => e_BASE.e107::getFolder('MEDIA'),
-							'e107-master/e107_plugins/'     => e_BASE.e107::getFolder('PLUGINS'),
-							'e107-master/e107_system/'      => e_BASE.e107::getFolder('SYSTEM'),
-							'e107-master/e107_themes/'      => e_BASE.e107::getFolder('THEMES'),
-							'e107-master/e107_web/'         => e_BASE.e107::getFolder('WEB'),
-							'e107-master/'                  => e_BASE
-						);
-						
-						
-						$srch = array_keys($newFolders);
-						$repl = array_values($newFolders);
-
-						$archive 	= new PclZip(e_TEMP.$localfile);
-						$unarc 		= ($fileList = $archive -> extract(PCLZIP_OPT_PATH, e_TEMP, PCLZIP_OPT_SET_CHMOD, 0755)); // Store in TEMP first.
-
-						$error = array();
-						$success = array();
-						$skipped = array();
-
-						$excludes = array('e107-master/','e107-master/install.php','e107-master/favicon.ico');
-						
-						foreach($unarc as $k=>$v)
-						{
-							if(in_array($v['stored_filename'],$excludes))
-							{
-								continue;
-							}
-
-							$oldPath = $v['filename'];
-							$newPath =  str_replace($srch,$repl, $v['stored_filename']);
-
-							$message = "Moving ".$oldPath." to ".$newPath;
-
-							if($v['folder'] ==1 && is_dir($newPath))
-							{
-								continue;
-							}
-
-							if(!rename($oldPath,$newPath))
-							{
-								$error[] =  $message;
-							}
-							else
-							{
-								$success[] = $message;
-							}
-						}
-						
-						if(!empty($success))
-						{
-							e107::getMessage()->addSuccess(print_a($success,true));
-						}
-
-						if(!empty($skipped))
-						{
-							e107::getMessage()->setTitle("Skipped",E_MESSAGE_INFO)->addInfo(print_a($skipped,true));
-						}
-
-						if(!empty($error))
-						{
-							e107::getMessage()->addError(print_a($error,true));
-						}
-						
-						e107::getRender()->tablerender(DBLAN_10.SEP."Sync with Github", e107::getMessage()->render());
-					}
-					
-					
-					
-			//	}
-		//	}
-			
-			//$text = 'Hello World!';
-			$ns->tablerender('Update',$text);	
-		}
-		
 		public function syncPage()
 		{
-			$ns = e107::getRender();
-			$text = 'Hello World!';
-			$ns->tablerender('Hello',$text);	
-			
+			$mainadmin = e_SELF.'/../admin_sync.php';
+  			header("location:".$mainadmin); exit; 		
 		}		
 	/*	
 		// optional - override edit page. 

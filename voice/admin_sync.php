@@ -56,7 +56,7 @@ class voice_sync_exesystem_ui extends e_admin_ui
 
 		//$text .= '<button type="button"> Click Me </button>';
 		$text .= 'Here is the link to sync the voice plugin - just a test <br />
-		<a href="deploy.php">GitHub Sync</a>';
+		<';
 		
 		
 		$ns->tablerender('Sync',$text);	
