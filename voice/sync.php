@@ -21,24 +21,22 @@ if (!getperms('P'))
 //$theme = e107::getPref('sitetheme');
 //define("EXPORT_PATH","{e_THEME}".$theme."/install/");
 
-if(!getperms('0'))
-{
-	e107::redirect('admin');
-	exit();
-}
-
+//if(!getperms('0'))
+//{
+//	e107::redirect('admin');
+//	exit();
+//}
+/*
 if(isset($_POST['back']))
 {
 	header("location: ".e_SELF);
 	exit();
 }
-
+*/
 include_lan('../../e107_languages'.e_LANGUAGE.'/admin/lan_db.php');		
-
-
-
+/*
 $e_sub_cat = 'database';
-
+*/
 $frm = e107::getForm();
 $mes = e107::getMessage();
 
@@ -55,6 +53,7 @@ if(isset($_GET['type']))
 /*
  * Execute trigger
  */
+ /*
 if(isset($_POST['db_execute']))
 {
 	$type = key($_POST['db_execute']);
@@ -68,11 +67,9 @@ if(isset($_POST['db_execute']))
 		$_POST[$type] = true;
 	}
 }
+*/
 
-
-
-
-
+/*
 if(isset($_POST['exportXmlFile']))
 {
 	if(exportXmlFile($_POST['xml_prefs'],$_POST['xml_tables'],$_POST['package_images']))
@@ -82,7 +79,8 @@ if(isset($_POST['exportXmlFile']))
 	}
 
 }
-
+*/
+/*
 if(e_AJAX_REQUEST )
 {
 
@@ -125,7 +123,7 @@ if(e_AJAX_REQUEST )
 	
 	exit;
 	
-}
+}*/
 
 require_once ("../../e107_admin/auth.php");
 
@@ -144,15 +142,6 @@ if(isset($_POST['backup_core']) || $_GET['mode']=='backup_core')
 */
 
 
-
-
-
-
-
-
-
-
-
 require_once ("../../e107_admin/footer.php");
 
 class system_tools
@@ -160,16 +149,14 @@ class system_tools
 
 	public $_options = array();
 	
-	private $_utf8_exclude = array();
+	//private $_utf8_exclude = array();
 
 
 	function __construct()
 	{
-		global $mySQLdefaultdb;
+		//global $mySQLdefaultdb;
 		
-		$this->_utf8_exclude = array(MPREFIX."core");
-
-		
+		//$this->_utf8_exclude = array(MPREFIX."core");
 
 /*		$this->_options = array(
 			"db_update"				=> array('diz'=>DBLAN_15, 'label'=>DBLAN_16),
@@ -196,13 +183,13 @@ class system_tools
 
 
 
-		$this->_options = multiarray_sort($this->_options, 'label');
+		//$this->_options = multiarray_sort($this->_options, 'label');
 				
-		if(isset($_POST['delplug']))
-		{
-			$this->delete_plugin_entry($_POST['pref_type']);
-		}
-
+		//if(isset($_POST['delplug']))
+		//{
+		//	$this->delete_plugin_entry($_POST['pref_type']);
+		//}
+/*
 		if(isset($_POST['upload']))
 		{
 			$this->importXmlFile();
@@ -221,7 +208,7 @@ class system_tools
 			$dbv->verify();
 			return;
 		}
-		
+*/		
 		// ----------------- Processes ------------------
 		
 	//	if(isset($_POST['verify_sql_record']) || varset($_GET['mode'])=='verify_sql_record' || isset($_POST['check_verify_sql_record']) || isset($_POST['delete_verify_sql_record']))
@@ -229,7 +216,7 @@ class system_tools
 		
 			 //$this->verify_sql_record(); // - currently performed in db_verify_class.php
 	//	}
-
+/*
 		if(isset($_POST['importForm']) ||  $_GET['mode']=='importForm')
 		{
 			$this->importForm();
@@ -284,7 +271,7 @@ class system_tools
 			$this->perform_utf8_convert();
 			return;
 		}
-
+*/
 		if(!empty($_POST['githubSyncProcess']))
 		{
 			$this->githubSyncProcess();
@@ -295,7 +282,7 @@ class system_tools
 
 		// --------------------- Modes --------------------------------.
 
-
+/*
 		if(varset($_GET['mode'])=='correct_perms')
 		{
 			$this->correct_perms();	
@@ -307,18 +294,18 @@ class system_tools
 			$this->multiSite();	
 			return;
 		}
-
+*/
 		if(varset($_GET['mode']) == 'github')
 		{
 			$this->githubSync();
 		}
-		
+/*		
 		if(varset($_GET['mode']) == 'backup')
 		{
 			$this->backup();
 			return;
 		}
-
+*/
 		if(!vartrue($_GET['mode']) && !isset($_POST['db_execute']))
 		{
 			$this->render_options();
