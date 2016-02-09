@@ -63,7 +63,7 @@ function define_sButton($sType)
 	  $sButton = '<span class="icon-vent"></span> ';
       break;
 	case 4:
-	  $sButton = '<span class="icon-vent"></span> ';
+	  $sButton = '<span class="icon-discord"></span> ';
       break;
 	}
 	return $sButton;

@@ -98,23 +98,6 @@ class voice_shortcodes extends e_shortcode
 					// Class
 					$bntClass1 = 'class="dropdown-toggle no-block" role="button" ';
 					// Name URL
-					// Get Voice Types
-					if($sserverType == 1) // Mumble
-					{
-						$nameLink = LAN_VOI_TYPE_MUM;
-					}
-					elseif($sserverType == 2) // TeamSpeak 3
-					{
-						$nameLink = LAN_VOI_TYPE_TS3;
-					}
-					elseif($sserverType == 3) // Ventrilo
-					{
-						$nameLink = LAN_VOI_TYPE_VEN;
-					}
-					elseif($serverType == 4) // Discord
-					{
-						$nameLink = LAN_VOI_TYPE_DIS;
-					}
 					// Get Type Name
 					if($linkUrlType == 0)
 					{
@@ -122,7 +105,22 @@ class voice_shortcodes extends e_shortcode
 					}
 					elseif($linkUrlType == 1)
 					{
-						$linkName = $nameLink;	
+						if($sserverType == 1)
+						{
+							$linkName = LAN_VOI_TYPE_MUM;
+						}
+						elseif($sserverType == 1)
+						{
+							$linkName = LAN_VOI_TYPE_TS3;
+						}
+						elseif($sserverType == 3)
+						{
+							$linkName = LAN_VOI_TYPE_VENT;
+						}
+						elseif($sserverType == 4)
+						{
+							$linkName = LAN_VOI_TYPE_DIS;
+						}	
 					}
 					elseif($linkUrlType == 2)
 					{
@@ -286,7 +284,7 @@ class voice_shortcodes extends e_shortcode
 						}
 					}
 					// Discord
-					elseif($serverType == 4)
+					elseif($sserverType == 4)
 					{
 						if(!USERID)
 						{
@@ -312,7 +310,7 @@ class voice_shortcodes extends e_shortcode
 						{
 							$disSTheme = "dark";
 						}
-						$btnClass3 = '<span class="icon-vent"></span> ';
+						$btnClass3 = '<span class="icon-discord"></span> ';
 						$sType = "https://";
 						if(!empty($disID))
 						{
@@ -320,18 +318,18 @@ class voice_shortcodes extends e_shortcode
 							{
 								if($disiFrame == 0)
 								{
-									$voice_exe .='<a '.$btnClass1.'href="'.$sType.'discordapp.com/invite/'.$disInvitecode.'?utm_source=Voice_eXe%20e107%20Plugin&utm_medium=Connect">'.$btnClass3.''.$linkName.'</a>';
+									$voice_exe .='<a '.$btnClass1.'href="'.$sType.'discordapp.com/invite/'.$disInvitecode.'?utm_source=Voice_eXe%20e107%20Plugin&utm_medium=Connect" target="_blank">'.$btnClass3.''.$linkName.'</a>';
 								}
 								else
 								{
-									$voice_exe .='<iframe src="'.$sType.'discordapp.com/widget?id='.$disID.'&theme='.$disSTheme.'&username='.$userName.'" width="'.$disWidth.'" height="'.$sdisHeight.'" allowtransparency="'.$disTransparent.'" frameborder="'.$disFrame.'"></iframe>';
+									$voice_exe .='<iframe src="'.$sType.'discordapp.com/widget?id='.$disID.'&theme='.$disSTheme.'&username='.$userName.'" width="'.$disWidth.'" height="'.$disHeight.'" allowtransparency="'.$disTransparent.'" frameborder="'.$disFrame.'"></iframe>';
 								}
 							}
 							else
 							{
 								if($disiFrame == 1)
 								{
-									$voice_exe .='<iframe src="'.$sType.'discordapp.com/widget?id='.$disID.'&theme='.$disSTheme.'&username='.$userName.'" width="'.$disWidth.'" height="'.$sdisHeight.'" allowtransparency="'.$disTransparent.'" frameborder="'.$disFrame.'"></iframe>';
+									$voice_exe .='<iframe src="'.$sType.'discordapp.com/widget?id='.$disID.'&theme='.$disSTheme.'&username='.$userName.'" width="'.$disWidth.'" height="'.$disHeight.'" allowtransparency="'.$disTransparent.'" frameborder="'.$disFrame.'"></iframe>';
 								}
 							}
 						}

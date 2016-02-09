@@ -46,6 +46,7 @@ class voice_sync_exesystem_ui extends e_admin_ui
 	
 	public $_options = array();
 	
+	
 	public function syncPage()
     {
 	 	$ns = e107::getRender();
@@ -59,10 +60,15 @@ class voice_sync_exesystem_ui extends e_admin_ui
 			return;
 		}
 		
-		if(varset($_GET['mode']) == 'github')
-		{
-			$this->githubSync();
-		}
+		//if(varset($_GET['mode']) == 'github')
+		//{
+		//	$this->githubSync();
+		//}
+		
+		//if(varset($_GET['modegit']) == 'github')
+		//}
+		//	$this->githubSync(.e_SELF."?modegit=".$key."');
+		//}
 		
 		if(!vartrue($_GET['mode']) && !isset($_POST['db_execute']))
 		{

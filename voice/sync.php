@@ -149,14 +149,14 @@ class system_tools
 
 	public $_options = array();
 	
-	//private $_utf8_exclude = array();
+	private $_utf8_exclude = array();
 
 
 	function __construct()
 	{
-		//global $mySQLdefaultdb;
+		global $mySQLdefaultdb;
 		
-		//$this->_utf8_exclude = array(MPREFIX."core");
+		$this->_utf8_exclude = array(MPREFIX."core");
 
 /*		$this->_options = array(
 			"db_update"				=> array('diz'=>DBLAN_15, 'label'=>DBLAN_16),
@@ -299,13 +299,13 @@ class system_tools
 		{
 			$this->githubSync();
 		}
-/*		
+		
 		if(varset($_GET['mode']) == 'backup')
 		{
 			$this->backup();
 			return;
 		}
-*/
+
 		if(!vartrue($_GET['mode']) && !isset($_POST['db_execute']))
 		{
 			$this->render_options();

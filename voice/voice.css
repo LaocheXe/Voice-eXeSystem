@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: "untitled-font-3";
+  font-family: "voice-exe-font";
   /*
-  src:url("http://defiantz.org/e107_plugins/voice/fonts/untitled-font-3.eot");
-  src:url("http://defiantz.org/e107_plugins/voice/fonts/fonts/untitled-font-3.eot?#iefix") format("embedded-opentype"),
-    url("http://defiantz.org/e107_plugins/voice/fonts/fonts/untitled-font-3.woff") format("woff"),
-    url("http://defiantz.org/e107_plugins/voice/fonts/fonts/untitled-font-3.ttf") format("truetype"),
-    url("http://defiantz.org/e107_plugins/voice/fonts/fonts/untitled-font-3.svg#untitled-font-3") format("svg");
+  src:url("http://defiantz.org/e107_plugins/voice/fonts/voice-exe-font.eot");
+  src:url("http://defiantz.org/e107_plugins/voice/fonts/fonts/voice-exe-font.eot?#iefix") format("embedded-opentype"),
+    url("http://defiantz.org/e107_plugins/voice/fonts/fonts/voice-exe-font.woff") format("woff"),
+    url("http://defiantz.org/e107_plugins/voice/fonts/fonts/voice-exe-font.ttf") format("truetype"),
+    url("http://defiantz.org/e107_plugins/voice/fonts/fonts/voice-exe-font.svg#voice-exe-font") format("svg");
 	*/
 	/*
   src:url("https://fontastic.s3.amazonaws.com/zJpTUY3o6Cjvk2n9CJBdyE/fonts/1427755787.eot");
@@ -18,15 +18,15 @@
   font-weight: normal;
   font-style: normal;
   */
-  src:url("fonts/untitled-font-3.eot");
-  src:url("fonts/untitled-font-3.eot?#iefix") format("embedded-opentype"),
-    url("fonts/untitled-font-3.woff") format("woff"),
-    url("fonts/untitled-font-3.ttf") format("truetype"),
-    url("fonts/untitled-font-3.svg#untitled-font-3") format("svg");
+  src:url("fonts/voice-exe-font.eot");
+  src:url("fonts/voice-exe-font.eot?#iefix") format("embedded-opentype"),
+    url("fonts/voice-exe-font.woff") format("woff"),
+    url("fonts/voice-exe-font.ttf") format("truetype"),
+    url("fonts/voice-exe-font.svg#untitled-font-3") format("svg");
 }
 
 [data-icon]:before {
-  font-family: "untitled-font-3" !important;
+  font-family: "voice-exe-font" !important;
   content: attr(data-icon);
   font-style: normal !important;
   font-weight: normal !important;
@@ -40,7 +40,7 @@
 
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
-  font-family: "untitled-font-3" !important;
+  font-family: "voice-exe-font" !important;
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;
@@ -59,4 +59,7 @@
 }
 .icon-ts3:before {
   content: "t";
+}
+.icon-discord:before {
+  content: "d";
 }
