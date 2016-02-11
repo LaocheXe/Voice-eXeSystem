@@ -60,6 +60,7 @@ class voice_sync_exesystem_ui extends e_admin_ui
 			return;
 		}
 		
+<<<<<<< HEAD
 		//if(varset($_GET['mode']) == 'github')
 		//{
 		//	$this->githubSync();
@@ -69,8 +70,14 @@ class voice_sync_exesystem_ui extends e_admin_ui
 		//}
 		//	$this->githubSync(.e_SELF."?modegit=".$key."');
 		//}
+=======
+		if(varset($_GET['modegit']) == 'github')
+		{
+			$this->githubSync();
+		}
+>>>>>>> origin/master
 		
-		if(!vartrue($_GET['mode']) && !isset($_POST['db_execute']))
+		if(!vartrue($_GET['modegit']) && !isset($_POST['db_execute']))
 		{
 			$this->render_options();
 		}
@@ -219,8 +226,8 @@ class voice_sync_exesystem_ui extends e_admin_ui
 		{
 			
 			$text .= "<div class='pull-left' style='width:50%;padding-bottom:10px'>
-			<a class='btn btn-default btn-large pull-left' style='margin-right:10px' href='".e_SELF."?mode=".$key."' title=\"".$val['label']."\">".ADMIN_EXECUTE_ICON."</a>
-			<h4 style='margin-bottom:3px'><a href='".e_SELF."?mode=".$key."' title=\"".$val['label']."\">".$val['label']."</a></h4><small>".$val['diz']."</small>
+			<a class='btn btn-default btn-large pull-left' style='margin-right:10px' href='".e_SELF."?modegit=".$key."' title=\"".$val['label']."\">".ADMIN_EXECUTE_ICON."</a>
+			<h4 style='margin-bottom:3px'><a href='".e_SELF."?modegit=".$key."' title=\"".$val['label']."\">".$val['label']."</a></h4><small>".$val['diz']."</small>
 			</div>";
 		
 		}
