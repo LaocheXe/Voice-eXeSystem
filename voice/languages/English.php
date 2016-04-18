@@ -14,8 +14,10 @@ define("LAN_VOI_IP", "Server IP/Host");
 define("LAN_VOI_PORT", "Port");
 define("LAN_VOI_QPORT", "Query Port");
 define("LAN_VOI_SCENABLE", "Enable Short Code");
+define("LAN_VOI_VCCENABLE", "Enable Custom Viewer Code");
 define("LAN_VOI_MSCENABLE", "Custom ShortCode Enable");
 define("LAN_VOI_MSC", "Custom Server ShortCode");
+define("LAN_VOI_CC", "Custom Viewer Code");
 define("LAN_VOI_SERPASS", "Server Password");
 define("LAN_VOI_CHANNEL", "Channel");
 define("LAN_VOI_CHAPASS", "Channel Password");
@@ -115,5 +117,8 @@ define("LAN_VOI_INFO_VDIFRAME", "Enable or Disable the iFrame in the shortcode, 
 define("LAN_VOI_INFO_VDFBOR", "Default: 0, Frame Border size, this is for the iFrame");
 
 define("LAN_VOI_UPDATE", "Update");
+
+define("LAN_VOI_INFO_VCC", "Enable Custom Viewer Code");
+define("LAN_VOI_INFO_CC", "Custom Viewer Code - HTML Code Only");
 
 ?>
