@@ -10,7 +10,7 @@ if(!e107::isInstalled('voice'))
 require_once(HEADERF);
 
 	$id = $_GET['id'];
-	if($sql->select("voice_exesystem", "voice_id, voice_name, voice_type, voice_ip, voice_port, voice_qport, voice_password, voice_qname, voice_qpass, voice_viewer. voice_viewer_cc", "voice_id LIKE '". $id."%'"))
+	if($sql->select("voice_exesystem", "voice_id, voice_name, voice_type, voice_ip, voice_port, voice_qport, voice_password, voice_qname, voice_qpass, voice_viewer, voice_viewer_cc", "voice_id LIKE '". $id."%'"))
 	{
 		while($row = $sql->db_Fetch())
 		{
@@ -25,17 +25,18 @@ require_once(HEADERF);
 			$sType = $row['voice_type'];
 			$sViewerCC = $row['voice_viewer_cc'];
 			
-			$pageTitle = "".$sName." - TS3";
+			$pageTitle = "".$sName." - TeamSpeak3";
 		
 			if($row['voice_type'] == 2)
 			{
-				$pageTitle = "TS3 - ".$sName."";
+				//$pageTitle = "TS3 - ".$sName."";
 				
 				if($row['voice_viewer'] == 1)
 				{
 					
-					//$viewer = e107::getParser()->toHTML($sViewerCC);
-					$viewer = $sViewerCC;
+					$viewer = e107::getParser()->toHTML($sViewerCC);
+					//$viewer = $sViewerCC;
+					//$text .= $viewer;
 				}
 				else
 				{	
@@ -50,6 +51,7 @@ require_once(HEADERF);
 					// build/display html tree view using custom image paths to remore icons that are embedded using data URI
 					$viewer = $ts3_VirtualServer->getViewer(new TeamSpeak3_Viewer_Html("../../images/icons/", "../../images/flags/", "data:image"));
 					$viewer = '<br /><br /><br /><br />';
+					//$text .= $viewer;
 				}
 				
 				$text = $viewer;

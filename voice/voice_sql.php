@@ -16,7 +16,6 @@ CREATE TABLE `voice_exesystem` (
   `voice_channelpass` varchar(255) DEFAULT NULL,
   `voice_type_version` int(12) unsigned NOT NULL,
   `voice_listname` int(10) unsigned NOT NULL,
-  `voice_qname` varchar(255) DEFAULT NULL,
   `voice_discord_id` varchar(128) DEFAULT NULL,
   `voice_discord_invitecode` varchar(255) DEFAULT NULL,
   `voice_discord_japi` varchar(200) DEFAULT NULL,
