@@ -12,4 +12,5 @@
  *
 */
 e107::css('voice','voice.css');
+//e107::lan('voice',e_LANGUAGE.".php");
 ?>

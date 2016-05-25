@@ -1,5 +1,5 @@
 <?php exit;?>
-CREATE TABLE `voice_exesystem` (
+CREATE TABLE IF NOT EXISTS `voice_exesystem` (
   `voice_id` int(10) NOT NULL AUTO_INCREMENT,
   `voice_name` varchar(128) NOT NULL,
   `voice_type` int(10) unsigned NOT NULL,

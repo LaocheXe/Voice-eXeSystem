@@ -1,0 +1,9 @@
+[20-Apr-2016 04:54:12 UTC] PHP Fatal error:  Uncaught exception 'TeamSpeak3_Transport_Exception' with message 'Connection refused' in /home4/thirdcav/public_html/e107_plugins/voice/libraries/TeamSpeak3/Transport/TCP.php:54
+Stack trace:
+#0 /home4/thirdcav/public_html/e107_plugins/voice/libraries/TeamSpeak3/Transport/TCP.php(108): TeamSpeak3_Transport_TCP->connect()
+#1 /home4/thirdcav/public_html/e107_plugins/voice/libraries/TeamSpeak3/Adapter/ServerQuery.php(76): TeamSpeak3_Transport_TCP->readLine()
+#2 /home4/thirdcav/public_html/e107_plugins/voice/libraries/TeamSpeak3/Adapter/Abstract.php(60): TeamSpeak3_Adapter_ServerQuery->syn()
+#3 /home4/thirdcav/public_html/e107_plugins/voice/libraries/TeamSpeak3/TeamSpeak3.php(320): TeamSpeak3_Adapter_Abstract->__construct(Array)
+#4 /home4/thirdcav/public_html/e107_plugins/voice/viewers/ts3/ts3.php(47): TeamSpeak3::factory('serverquery://L...')
+#5 {main}
+  thrown in /home4/thirdcav/public_html/e107_plugins/voice/libraries/TeamSpeak3/Transport/TCP.php on line 54
