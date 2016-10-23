@@ -10,7 +10,7 @@
 	<category>tools</category>
 	<copyright>GNU General Public License v2</copyright>
 	<adminLinks>
-		<link url="admin_config.php" description="" icon="/images/icon_32.png" iconSmall="/images/icon_16.png" primary="true" >LAN_CONFIGURE</link>
+		<link url="admin_config.php" description="" icon="images/icon_32.png" iconSmall="images/icon_16.png" icon128="images/icon_128.png" primary="true" >LAN_CONFIGURE</link>
 	</adminLinks>
 	
 </e107Plugin>
