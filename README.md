@@ -31,3 +31,8 @@ Future:<br />
  ~Add Viewers and pages/menus for the VOIP viewer<br />
  ~Add other VOIP Support<br />
  </p>
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/LaocheXe/Voice-eXeSystem/badge.svg?style=beer-square)](https://beerpay.io/LaocheXe/Voice-eXeSystem)  [![Beerpay](https://beerpay.io/LaocheXe/Voice-eXeSystem/make-wish.svg?style=flat-square)](https://beerpay.io/LaocheXe/Voice-eXeSystem?focus=wish)
