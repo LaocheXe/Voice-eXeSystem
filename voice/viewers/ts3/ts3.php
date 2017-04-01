@@ -9,6 +9,8 @@ if(!e107::isInstalled('voice'))
 
 require_once(HEADERF);
 
+e107::lan('voice', true, true);
+
 	$id = $_GET['id'];
 	if($sql->select("voice_exesystem", "voice_id, voice_name, voice_type, voice_ip, voice_port, voice_qport, voice_password, voice_qname, voice_qpass, voice_viewer, voice_viewer_cc", "voice_id LIKE '". $id."%'"))
 	{
@@ -25,7 +27,7 @@ require_once(HEADERF);
 			$sType = $row['voice_type'];
 			$sViewerCC = $row['voice_viewer_cc'];
 			
-			$pageTitle = "".$sName." - TeamSpeak3";
+			$pageTitle = "".LAN_VOI_TYPE_TS3." - ".$sName."";
 		
 			if($row['voice_type'] == 2)
 			{

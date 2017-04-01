@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Plugin name="Voice eXeSystem" lan="LAN_PLUGIN_VOI_NAME" version="1.6" date="2015-05-16" compatibility="2.0" installRequired="true" >
+<e107Plugin name="Voice eXeSystem" lan="LAN_PLUGIN_VOI_NAME" version="1.7" date="2015-05-16" compatibility="2.0" installRequired="true" >
 	<author name="LaocheXe" url="https://github.com/LaocheXe" />
-	<summary lan="">Theme ShortCode Generator for TeamSpeak3, Ventrilo, Mumble, and or Discord</summary>
-	<description lan="">Save TeamSpeak3/Ventrilo/Mumble/Discord Server Information and enables the user to add a join button to that server on the theme's shortcode area.</description>
+	<summary lan="">Theme ShortCode Generator for TeamSpeak3, Ventrilo, Mumble, Discord, and many more.</summary>
+	<description lan="">Save TeamSpeak3/Ventrilo/Mumble/Discord Server Information and enables the user to add a join button to that server on the theme's shortcode area. Also if you use another communications program, you can share the custom html code in this plugin.</description>
 	<keywords>
 		<word>gaming</word>
 		<word>voicecomms</word>

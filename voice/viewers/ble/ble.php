@@ -9,53 +9,15 @@ if(!e107::isInstalled('voice'))
 
 require_once(HEADERF);
 
+e107::lan('voice', true, true);
 
-//require_once('libraries/TeamSpeak3/TeamSpeak3.php');
-require_once('../../libraries/TeamSpeak3/TeamSpeak3.php');
-
-//$sql = e107::getDB();
-//$sql->select('voice_exesystem', 'voice_id, voice_name, voice_type, voice_ip, voice_port, voice_qport, voice_password, voice_channel, voice_channelpass, voice_qname, voice_qpass');
-//		while($row = $sql->fetch())
-//		{
-//			if($row['voice_type'] == 2)
-//			{
-//					$sID = $row['voice_id'];
-//					$sHost = $row['voice_ip'];
-//					$sJPort = $row['voice_port'];
-//					$sQPort = $row['voice_qport'];
-//					$sQUser = $row['voice_qname'];
-//					$sQPass = $row['voice_qpass'];
-//					$sPass = $row['voice_password'];
-//					$sChan = $row['voice_channel'];
-//					$sChanp = $row['voice_channelpass'];
-//					$sType = $row['voice_type'];
-					
-//					if($_GET['id'] == $sID)
-//					{
-					
-						// The Query
-						// connect to server, authenticate and spawn an object for the virtual server on port 9987
-						//$ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987");
-//						$ts3_VirtualServer = TeamSpeak3::factory("serverquery://".$sQUser.":".$sQPass."@".$sHost.":".$sQPort."/?server_port=".$sJPort."");
-					
-						// Spawn an object using a specified name (Viewer)
-						//$ts3_Clent = $ts3_VirtualServer->clientGetByName("Viewer");
-						// build/display html tree view using custom image paths to remore icons that are embedded using data URI
-//						$text .= $ts3_VirtualServer->getViewer(new TeamSpeak3_Viewer_Html("../../images/icons/", "../../images/flags/", "data:image"));
-//						$text .= '<br /><br /><br /><br />';
-//					}
-//			}
-//		}
-
-
-//if(varture($_GET['id']))
-//{
 	$id = $_GET['id'];
-	if($sql->select("voice_exesystem", "voice_id, voice_type, voice_ip, voice_port, voice_qport, voice_password, voice_qname, voice_qpass, voice_viewer. voice_viewer_cc", "voice_id LIKE '". $id."%'"))
+	if($sql->select("voice_exesystem", "voice_id, voice_name, voice_type, voice_ip, voice_port, voice_qport, voice_password, voice_qname, voice_qpass, voice_viewer, voice_viewer_cc", "voice_id LIKE '". $id."%'"))
 	{
 		while($row = $sql->db_Fetch())
 		{
 			$sID = $row['voice_id'];
+			$sName = $row['voice_name'];
 			$sHost = $row['voice_ip'];
 			$sJPort = $row['voice_port'];
 			$sQPort = $row['voice_qport'];
@@ -63,28 +25,39 @@ require_once('../../libraries/TeamSpeak3/TeamSpeak3.php');
 			$sQPass = $row['voice_qpass'];
 			$sPass = $row['voice_password'];
 			$sType = $row['voice_type'];
+			$sViewerCC = $row['voice_viewer_cc'];
+			
+			$pageTitle = "".LAN_VOI_TYPE_MUM." - ".$sName."";
 		
-			if($row['voice_type'] == 2)
+			if($row['voice_type'] == 0)
 			{
+				//$pageTitle = "TS3 - ".$sName."";
+				
 				if($row['voice_viewer'] == 1)
 				{
-					$sViewerCC = $row['voice_viewer_cc'];
-	
-					$text .= e107::getParser()->toHTML($sViewerCC);
+					
+					$viewer = e107::getParser()->toHTML($sViewerCC);
+					//$viewer = $sViewerCC;
+					//$text .= $viewer;
 				}
-				else
-				{	
+				//else
+				//{	
+				//	require_once('../../libraries/TeamSpeak3/TeamSpeak3.php');
 					// The Query
 					// connect to server, authenticate and spawn an object for the virtual server on port 9987
 					//$ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987");
-					$ts3_VirtualServer = TeamSpeak3::factory("serverquery://".$sQUser.":".$sQPass."@".$sHost.":".$sQPort."/?server_port=".$sJPort."");
+				//	$ts3_VirtualServer = TeamSpeak3::factory("serverquery://".$sQUser.":".$sQPass."@".$sHost.":".$sQPort."/?server_port=".$sJPort."");
 					
 					// Spawn an object using a specified name (Viewer)
 					//$ts3_Clent = $ts3_VirtualServer->clientGetByName("Viewer");
 					// build/display html tree view using custom image paths to remore icons that are embedded using data URI
-					$text .= $ts3_VirtualServer->getViewer(new TeamSpeak3_Viewer_Html("../../images/icons/", "../../images/flags/", "data:image"));
-					$text .= '<br /><br /><br /><br />';
-				}
+				//	$viewer = $ts3_VirtualServer->getViewer(new TeamSpeak3_Viewer_Html("../../images/icons/", "../../images/flags/", "data:image"));
+				//	$viewer = '<br /><br /><br /><br />';
+					//$text .= $viewer;
+				//}
+				
+				$text = $viewer;
+				//return $text;
 			}
 			else
 			{
@@ -92,31 +65,8 @@ require_once('../../libraries/TeamSpeak3/TeamSpeak3.php');
 			}
 		}
 	}
-//}
 
-//if(e_AJAX_REQUEST)
-//{
-//	if(vartrue($_GET['q']))
-//	{
-//		$q = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
-//		if($sql->select("user", "user_id,user_name", "user_name LIKE '". $q."%' ORDER BY user_name LIMIT 15"))
-//		{
-//			while($row = $sql->db_Fetch())
-//			{
-//				$id = $row['user_id'];
-//				$data[$id] = $row['user_name'];
-//			}
-			
-//			if(count($data))
-//			{
-//				echo json_encode($data);	
-//			}
-//		}		
-//	}
-//	exit;
-//}
-
-e107::getRender()->tablerender("TS3 - Test", $text);
+e107::getRender()->tablerender($pageTitle, $text);
 
 require_once(FOOTERF);
 exit;

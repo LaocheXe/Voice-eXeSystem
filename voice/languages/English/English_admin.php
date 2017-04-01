@@ -1,11 +1,9 @@
 <?php
-/*
-* Copyright (c) LaocheXe 2015, Licensed under GNU GPL (http://www.gnu.org/licenses/gpl.txt)
-* 
-* E107 Plugin (www.e107.org)
-*
-* Voice eXeSystem global language defines
-*/
+
+/**
+ * @file
+ * Language file for "VOICE" plugin.
+ */
 
 // Admin Config
 define("LAN_VOI_NAME", "Voice Server Name");
@@ -107,7 +105,7 @@ define("LAN_VOI_DI_LIGHT", "Light");
 define("LAN_VOI_DI_DARK", "Dark");
 
 define("LAN_VOI_INFO_VDID", "Server ID, can be found in Server Settings > Widget");
-define("LAN_VOI_INFO_VDINTE", "Invite Code, Make the invite code to the server last forever");
+define("LAN_VOI_INFO_VDINTE", "Invite Code, Make the invite code to the server last forever, If Invite code is https://discord.gg/Ssn7n9h - Just use the last part: Ssn7n9h");
 define("LAN_VOI_INFO_VDJAPI", "Jason API, can be found in Server Settings > Widget");
 define("LAN_VOI_INFO_VDTHEM", "Select Light or Dark, this is for the iFrame");
 define("LAN_VOI_INFO_VDWIDTH", "Default: 350, this is for the iFrame");
@@ -120,5 +118,12 @@ define("LAN_VOI_UPDATE", "Update");
 
 define("LAN_VOI_INFO_VCC", "Enable Custom Viewer Code");
 define("LAN_VOI_INFO_CC", "Custom Viewer Code - HTML Code Only");
+
+define("LAN_VOICEXE_ADMIN_HELP_01", "Help & Support");
+define("LAN_VOICEXE_ADMIN_HELP_02", "If you think this plugin is useful and saves you a lot of work, then star it on Github! Thank you!");
+define("LAN_VOICEXE_ADMIN_HELP_03", "Please feel free to report any bug found. Pull requests and issues are more than welcome!");
+define("LAN_VOICEXE_ADMIN_HELP_04", "Issue");
+define("LAN_VOICEXE_ADMIN_HELP_05", "Star");
+define("LAN_VOICEXE_ADMIN_HELP_06", "Support on Beerpay");
 
 ?>

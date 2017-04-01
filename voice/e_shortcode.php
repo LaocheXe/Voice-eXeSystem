@@ -320,12 +320,33 @@ class voice_shortcodes extends e_shortcode
 								{
 									$voice_exe .='<a '.$btnClass1.'href="'.$sType.'discordapp.com/invite/'.$disInvitecode.'?utm_source=Voice_eXe%20e107%20Plugin&utm_medium=Connect" target="_blank">'.$btnClass3.''.$linkName.'</a>';
 								}
-								else
+								elseif ($disiFrame == 1)
 								{
 									$voice_exe .='<iframe src="'.$sType.'discordapp.com/widget?id='.$disID.'&theme='.$disSTheme.'&username='.$userName.'" width="'.$disWidth.'" height="'.$disHeight.'" allowtransparency="'.$disTransparent.'" frameborder="'.$disFrame.'"></iframe>';
 								}
 							}
-							else
+							elseif(empty($disInvitecode))
+							{
+								if($disiFrame == 1)
+								{
+									$voice_exe .='<iframe src="'.$sType.'discordapp.com/widget?id='.$disID.'&theme='.$disSTheme.'&username='.$userName.'" width="'.$disWidth.'" height="'.$disHeight.'" allowtransparency="'.$disTransparent.'" frameborder="'.$disFrame.'"></iframe>';
+								}
+							}
+						}
+						elseif(empty($disID))
+						{
+							if(!empty($disInvitecode))
+							{
+								if($disiFrame == 0)
+								{
+									$voice_exe .='<a '.$btnClass1.'href="'.$sType.'discordapp.com/invite/'.$disInvitecode.'?utm_source=Voice_eXe%20e107%20Plugin&utm_medium=Connect" target="_blank">'.$btnClass3.''.$linkName.'</a>';
+								}
+								elseif ($disiFrame == 1)
+								{
+									$voice_exe .='<iframe src="'.$sType.'discordapp.com/widget?id='.$disID.'&theme='.$disSTheme.'&username='.$userName.'" width="'.$disWidth.'" height="'.$disHeight.'" allowtransparency="'.$disTransparent.'" frameborder="'.$disFrame.'"></iframe>';
+								}
+							}
+							elseif(empty($disInvitecode))
 							{
 								if($disiFrame == 1)
 								{

@@ -8,7 +8,8 @@
 
 require_once('../../class2.php');
 require_once(HEADERF);
-include_lan(e_PLUGIN.'voice/languages/'.e_LANGUAGE.'.php'); // see e107 doc on including LAN using v2 standards
+//include_lan(e_PLUGIN.'voice/languages/'.e_LANGUAGE.'.php'); // see e107 doc on including LAN using v2 standards
+e107::lan('voice', true, true);
 
 e107::css('voice','voice.css');
 

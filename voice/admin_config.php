@@ -10,7 +10,8 @@ if (!getperms('P'))
 }
 
 // Added Language URL - eXe
-include_lan(e_PLUGIN.'voice/languages/'.e_LANGUAGE.'.php');
+//include_lan(e_PLUGIN.'voice/languages/'.e_LANGUAGE.'.php');
+e107::lan('voice', true, true);
 
 class voice_admin extends e_admin_dispatcher
 {
@@ -282,13 +283,7 @@ class voice_exesystem_ui extends e_admin_ui
 			<td align="center"><b>'.LAN_DONATE_MSG.'</b></td>
 			</tr>
 			<tr>
-			<td align="center"><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-">
-			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-			<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			</form>
+			<td align="center">
 			</td>
 			</tr>
 			</tfoot>
@@ -346,13 +341,7 @@ class voice_exesystem_ui extends e_admin_ui
 			<td align="center"><b>'.LAN_DONATE_MSG.'</b></td>
 			</tr>
 			<tr>
-			<td align="center"><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-">
-			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-			<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-			</form>
+			<td align="center">
 			</td>
 			</tr>
 			</tfoot>
@@ -360,12 +349,7 @@ class voice_exesystem_ui extends e_admin_ui
 			';
 			$ns->tablerender(LAN_VOI_EXAMPLE,$text);	
 		}
-
-		public function syncPage()
-		{
-			$mainadmin = e_SELF.'/../admin_sync.php';
-  			header("location:".$mainadmin); exit; 		
-		}		
+		
 	/*	
 		// optional - override edit page. 
 		public function customPage()
