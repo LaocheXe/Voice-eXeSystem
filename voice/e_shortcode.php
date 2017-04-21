@@ -51,6 +51,8 @@ class voice_shortcodes extends e_shortcode
 	
 	function sc_voice_exe()
 	{
+		e107::lan('voice', true, true);
+		
 		$sql = e107::getDB();
 		$sql->select('voice_exesystem', 'voice_name, voice_type, voice_ip, voice_port, voice_qport, voice_enable_sc, voice_enable_msc, voice_msc, voice_password, voice_channel, voice_channelpass, voice_type_version, voice_listname, voice_discord_id, voice_discord_invitecode, voice_discord_theme, voice_discord_width, voice_discord_height, voice_discord_transp, voice_discord_iframe, voice_discord_frameborder'); 
 		while($row = $sql->fetch())
