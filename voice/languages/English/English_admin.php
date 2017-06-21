@@ -119,11 +119,19 @@ define("LAN_VOI_UPDATE", "Update");
 define("LAN_VOI_INFO_VCC", "Enable Custom Viewer Code");
 define("LAN_VOI_INFO_CC", "Custom Viewer Code - HTML Code Only");
 
+// Beer Pay
 define("LAN_VOICEXE_ADMIN_HELP_01", "Help & Support");
 define("LAN_VOICEXE_ADMIN_HELP_02", "If you think this plugin is useful and saves you a lot of work, then star it on Github! Thank you!");
 define("LAN_VOICEXE_ADMIN_HELP_03", "Please feel free to report any bug found. Pull requests and issues are more than welcome!");
 define("LAN_VOICEXE_ADMIN_HELP_04", "Issue");
 define("LAN_VOICEXE_ADMIN_HELP_05", "Star");
 define("LAN_VOICEXE_ADMIN_HELP_06", "Support on Beerpay");
+
+//Plugin Peferences
+define("LAN_VOIEXE_ADMIN_PREF_ECLN", "Enable Custom Link Name");
+define("LAN_VOIEXE_ADMIN_PREF_LN", "Link Name");
+define("LAN_VOIEXE_ADMIN_PREF_ECLN_TIP", "Enable, or Disable Custom Link Name, Disable will show link name 'Voice'");
+define("LAN_VOIEXE_ADMIN_PREF_LN_TIP", "Default is Voice, if enable you can change the name as you want");
+
 
 ?>

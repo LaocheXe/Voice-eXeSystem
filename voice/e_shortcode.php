@@ -51,6 +51,9 @@ class voice_shortcodes extends e_shortcode
 	
 	function sc_voice_exe()
 	{
+		$pref_eCustomln = e107::pref('voice', 'eCustomln');
+		$pref_linkName = e107::pref('voice', 'linkName');
+		
 		e107::lan('voice', true, true);
 		
 		$sql = e107::getDB();
@@ -367,9 +370,20 @@ class voice_shortcodes extends e_shortcode
 				}
 			}
 		}
+		
+		
+		if($pref_eCustomln == 1)
+		{
+			$VoiPlug_Name = $pref_linkName;	
+		}
+		else
+		{
+			$VoiPlug_Name = LAN_VOIPLUG_NAME;	
+		}
+		
 		$text .='
 			<ul class="nav navbar-nav navbar-right">
-			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'.LAN_VOIPLUG_NAME.' <b class="caret"></b></a>
+			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'.$VoiPlug_Name.' <b class="caret"></b></a>
 			<ul class="dropdown-menu">
 			<li>
 			'.$voice_exe.'

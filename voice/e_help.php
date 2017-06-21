@@ -11,9 +11,9 @@ if(!defined('e107_INIT'))
 }
 
 // [PLUGINS]/voice/languages/[LANGUAGE]/[LANGUAGE]_admin.php
-//e107::lan('voice', true, true); <----- Will Update Plugin Lans Later TODO
+e107::lan('voice', true, true);
 // Added Language URL - eXe
-include_lan(e_PLUGIN.'voice/languages/'.e_LANGUAGE.'_admin.php');
+//include_lan(e_PLUGIN.'voice/languages/'.e_LANGUAGE.'_admin.php');
 
 
 /**

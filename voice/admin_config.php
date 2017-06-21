@@ -33,10 +33,11 @@ class voice_admin extends e_admin_dispatcher
 
 		'main/list'			=> array('caption'=> LAN_MANAGE, 'perm' => 'P'),
 		'main/create'		=> array('caption'=> LAN_CREATE, 'perm' => 'P'),
+		'main/prefs' 		=> array('caption'=> LAN_PREFS, 'perm' => 'P'),	
 		'main/info'			=> array('caption'=> LAN_VOI_INFO_NAME, 'perm' => 'P'),
 		'main/example'		=> array('caption'=> LAN_VOI_EXAMPLE, 'perm' => 'P'),
 		//'main/sync'		=> array('caption'=> LAN_VOI_UPDATE, 'perm' => 'P')
-
+		
 		// 'main/custom'		=> array('caption'=> 'Custom Page', 'perm' => 'P')
 	);
 
@@ -103,8 +104,11 @@ class voice_exesystem_ui extends e_admin_ui
 		//frameborder
 		protected $fieldpref = array('voice_name', 'voice_type', 'voice_ip', 'voice_port', 'voice_enable_sc', 'voice_enable_msc');
 		
-		
-		protected $prefs = array(); 
+		 
+		protected $prefs = array(
+			'eCustomln'		=> array('title'=> LAN_VOIEXE_ADMIN_PREF_ECLN, 'tab'=>0, 'type'=>'boolean', 'data' => 'str', 'help'=>LAN_VOIEXE_ADMIN_PREF_ECLN_TIP),
+			'linkName'		=> array('title'=> LAN_VOIEXE_ADMIN_PREF_LN, 'tab'=>0, 'type'=>'text', 'data' => 'str', 'help'=>LAN_VOIEXE_ADMIN_PREF_LN_TIP),
+		); 
 
 	
 		public function init()
