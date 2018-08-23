@@ -42,20 +42,40 @@ e107::lan('voice', true, true);
 				}
 				else
 				{	
+					// For Debugging
+					//echo "serverquery://".$sQUser.":".$sQPass."@".$sHost.":".$sQPort."/?server_port=".$sJPort."";
 					require_once('../../libraries/TeamSpeak3/TeamSpeak3.php');
+					TeamSpeak3::init();
+					
+					// Get Image Locations
+					//$tsFlags = e_PLUGIN."voice/images/flags/";
+					//$tsIcons = e_PLUGIN."voice/images/icons/";
+					//$tsViewer = e_PLUGIN."voice/images/viewer";
 					// The Query
 					// connect to server, authenticate and spawn an object for the virtual server on port 9987
 					//$ts3_VirtualServer = TeamSpeak3::factory("serverquery://username:password@127.0.0.1:10011/?server_port=9987");
-					$ts3_VirtualServer = TeamSpeak3::factory("serverquery://".$sQUser.":".$sQPass."@".$sHost.":".$sQPort."/?server_port=".$sJPort."");
-					
+					//if($sQUser == !null)
+					//{
+						//echo "No Null";
+					//	$ts3_VirtualServer = TeamSpeak3::factory("serverquery://".$sHost.":".$sQPort."/?server_port=".$sJPort."#no_query_clients");
+						
+					//}
+					//elseif($sQUser == null)
+					//{
+					//	echo "Null";
+						$ts3_VirtualServer = TeamSpeak3::factory("serverquery://".$sQUser.":".$sQPass."@".$sHost.":".$sQPort."/?server_port=".$sJPort."");
+					//}
 					// Spawn an object using a specified name (Viewer)
 					//$ts3_Clent = $ts3_VirtualServer->clientGetByName("Viewer");
 					// build/display html tree view using custom image paths to remore icons that are embedded using data URI
-					$viewer = $ts3_VirtualServer->getViewer(new TeamSpeak3_Viewer_Html("../../images/icons/", "../../images/flags/", "data:image"));
+					$viewer = $ts3_VirtualServer->getViewer(new TeamSpeak3_Viewer_Html("../../images/viewer/", "../../images/icons/", "../../images/flags/", "data:image"));
+					//$viewer = $ts3_VirtualServer->getViewer(new TeamSpeak3_Viewer_Html($tsViewer, $tsFlags));
 					$viewer = '<br /><br /><br /><br />';
 					//$text .= $viewer;
 				}
 				
+				
+				//$text = $elDebug;
 				$text = $viewer;
 				//return $text;
 			}

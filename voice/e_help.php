@@ -52,7 +52,7 @@ class voice_help
 		$content = '';
 
 		$issue = array(
-			'href="https://github.com/LaocheXe/Voice-eXeSystem/issues"',
+			'href="https://github.com/LaocheXe/Voice-eXeSystem/issues" arget="_blank"',
 			'class="github-button"',
 			'data-icon="octicon-issue-opened"',
 			'data-style="mega"',
@@ -62,7 +62,7 @@ class voice_help
 		);
 
 		$star = array(
-			'href="https://github.com/LaocheXe/Voice-eXeSystem"',
+			'href="https://github.com/LaocheXe/Voice-eXeSystem" arget="_blank"',
 			'class="github-button"',
 			'data-icon="octicon-star"',
 			'data-style="mega"',
@@ -87,10 +87,17 @@ class voice_help
 
 		$content .= '<p class="text-center">' . LAN_VOICEXE_ADMIN_HELP_06 . '</p>';
 		$content .= '<p class="text-center">';
-		$content .= '<a href="https://beerpay.io/LaocheXe/Voice-eXeSystem">' . $beerImage . '</a>';
+		$content .= '<a href="https://beerpay.io/LaocheXe/Voice-eXeSystem" arget="_blank">' . $beerImage . '</a>';
 		$content .= '</p>';
 		$content .= '<p class="text-center">';
-		$content .= '<a href="https://beerpay.io/LaocheXe/Voice-eXeSystem">' . $beerWishImage . '</a>';
+		$content .= '<a href="https://beerpay.io/LaocheXe/Voice-eXeSystem" arget="_blank">' . $beerWishImage . '</a>';
+		$content .= '</p>';
+		
+		$paypalImage = '<img src="http://www.templechurch.org/FILES/BUTTONS/paypal-donate-button.png" alt="Paypal Donate" height="75" width="100" />';
+		
+		$content .= '<p class="text-center"> ' . LAN_VOICEXE_ADMIN_HELP_07 . '</p>';
+		$content .=	'<p class="text-center">';
+		$content .= '<a href="https://www.paypal.me/laochexe" target="_blank">' . $paypalImage . '</a>';
 		$content .= '</p>';
 
 		$block = array(

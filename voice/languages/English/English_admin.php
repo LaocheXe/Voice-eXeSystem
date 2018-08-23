@@ -126,6 +126,7 @@ define("LAN_VOICEXE_ADMIN_HELP_03", "Please feel free to report any bug found. P
 define("LAN_VOICEXE_ADMIN_HELP_04", "Issue");
 define("LAN_VOICEXE_ADMIN_HELP_05", "Star");
 define("LAN_VOICEXE_ADMIN_HELP_06", "Support on Beerpay");
+define("LAN_VOICEXE_ADMIN_HELP_07", "Or With PayPal");
 
 //Plugin Peferences
 define("LAN_VOIEXE_ADMIN_PREF_ECLN", "Enable Custom Link Name");
