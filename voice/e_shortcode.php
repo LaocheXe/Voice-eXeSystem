@@ -395,6 +395,7 @@ class voice_shortcodes extends e_shortcode
 			</li>
 			</ul>
 			';
+		e107::getDebug()->log($text);
 		return $text;
 	}
 	

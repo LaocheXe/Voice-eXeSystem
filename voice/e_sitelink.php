@@ -42,10 +42,11 @@ class voice_sitelink // include plugin-folder in the name.
 
 	function voiceEXE() 
 	{
-	/*	$sql = e107::getDb();
+		$sql = e107::getDb();
 		$tp = e107::getParser();
-		$sublinks = array();
+		//$sublinks = array();
 		
+		/*
 		$sql->select("faqs_info","*","faq_info_id != '' ORDER BY faq_info_order");
 		
 		while($row = $sql->fetch())
@@ -62,9 +63,27 @@ class voice_sitelink // include plugin-folder in the name.
 				'link_class'		=> intval($row['faq_info_class'])
 			);
 		}
-	*/	
-		$voiceeXe = '{VOICE_EXE}';
-		return $voiceeXe;
+		*/
+		
+		/*$voiceexe = array();
+		
+		$voiceexe[] = array(
+			'link_name'			=> '',
+			'link_url'			=> $sc_voice_exe,
+			'link_description'	=> '',
+			'link_button'		=> '',
+			'link_category'		=> '',
+			'link_order'		=> '',
+			'link_parent'		=> '',
+			'link_open'			=> '',
+			'link_class'		=> ''
+			);
+		*/
+		//$sc = e107::getScBatch('voice', true);
+		//$voiceexe = $sc->voice_exe;
+		//$voiceeXe = {VOICE_EXE};
+		return $tp->parseTemplate("{VOICE_EXE}",true);
+		//return $voiceeXe;
 	    
 	}
 	
