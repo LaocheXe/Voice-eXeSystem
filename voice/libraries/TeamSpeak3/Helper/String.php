@@ -4,8 +4,6 @@
  * @file
  * TeamSpeak 3 PHP Framework
  *
- * $Id: String.php 06/06/2016 22:27:13 scp@Svens-iMac $
- *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -20,16 +18,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package   TeamSpeak3
- * @version   1.1.24
  * @author    Sven 'ScP' Paulsen
- * @copyright Copyright (c) 2010 by Planet TeamSpeak. All rights reserved.
+ * @copyright Copyright (c) Planet TeamSpeak. All rights reserved.
  */
 
 /**
  * @class TeamSpeak3_Helper_String
  * @brief Helper class for string handling.
  */
-class TeamSpeak3_Helper_String implements ArrayAccess, Iterator, Countable
+class TeamSpeak3_Helper_String implements ArrayAccess, Iterator, Countable, JsonSerializable
 {
   /**
    * Stores the original string.
@@ -460,7 +457,7 @@ class TeamSpeak3_Helper_String implements ArrayAccess, Iterator, Countable
     $pattern[] = "[\xF1-\xF3][\x80-\xBF]{3}";         // planes 4-15
     $pattern[] = "\xF4[\x80-\x8F][\x80-\xBF]{2}";     // plane 16
 
-    return preg_match("%(?:" . implode("|", $pattern) . ")+%xs", $this->string);
+    return (bool) preg_match("%(?:" . implode("|", $pattern) . ")+%xs", $this->string);
   }
 
   /**
@@ -851,6 +848,16 @@ class TeamSpeak3_Helper_String implements ArrayAccess, Iterator, Countable
   public function __toString()
   {
     return (string) $this->string;
+  }
+
+  /**
+   *  Return UTF-8 encoded string to for serializing to JSON.
+   * 
+   * @return string
+   */
+  public function jsonSerialize()
+  {
+    return $this->toUtf8()->string;
   }
 
   /**
