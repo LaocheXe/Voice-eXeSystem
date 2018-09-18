@@ -1,12 +1,27 @@
 # Voice-eXeSystem
 e107 v 2.xx Plugin - Enables the e107 CMS to store Mumble, TeamSpeak3, and Ventrilo server ip/port and create the links to allow guest and/or users to connect to that server.
 <p>
-Current Version: 1.0<br />
-e107 Version: 2.X Beta 1<br />
+Current Version: 2.0<br />
+e107 Version: 2.1.9<br />
 Release Date: 2015-02-15<br />
 </p>
 <p>
+   Did you know: You can use this plugin to also launch vistors into your own game server, or launch their game? Use the custom Server ShortCode - start it out with steam://rungameid/###//   (replace the ### with the game ID, which can be found by going here: https://steamdb.info/apps/   <--- and if the game supports parameters, you can even have the users launch right into your server, and launch with mods, etc...<br />
+</p>
+<p>
 Change Log:<br />
+   Version - 2.0<br />
+      ~Updated {VOICE_EXE} shortcode html, allowing for Site Links Function to display correctly<br />
+      ~Added support for Site Links (removes the use of editing the theme shortcode)<br />
+      ~Added {VOICE_EXE_LEGACY} shortcode, allowing anyone to use the old method<br />
+      ~Updated the current github version of TeamSpeak PHP<br />
+   
+   Version - 1.9<br />
+      ~Added option to change the name of the voice dropdown menu<br />
+      
+   Version - 1.6<br />
+      ~Added support for custom viewers<br />
+   
    Version - 1.5<br />
       ~Added TeamSpeak 3 Viewer (Simple)<br />
       
