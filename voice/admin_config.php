@@ -45,7 +45,7 @@ class voice_admin extends e_admin_dispatcher
 		'main/edit'	=> 'main/list'				
 	);	
 	
-	protected $menuTitle = 'Voice eXeSystem';
+	protected $menuTitle = 'Voice eXeSystem'; //TODO LANS
 }
 
 
@@ -104,20 +104,66 @@ class voice_exesystem_ui extends e_admin_ui
 		//frameborder
 		protected $fieldpref = array('voice_name', 'voice_type', 'voice_ip', 'voice_port', 'voice_enable_sc', 'voice_enable_msc');
 		
-		 
+		protected $preftabs = array(LAN_GENERAL, "Discord Menu"); // Maybe more in the future
+		
 		protected $prefs = array(
-			'eCustomln'		=> array('title'=> LAN_VOIEXE_ADMIN_PREF_ECLN, 'tab'=>0, 'type'=>'boolean', 'data' => 'str', 'help'=>LAN_VOIEXE_ADMIN_PREF_ECLN_TIP),
-			'linkName'		=> array('title'=> LAN_VOIEXE_ADMIN_PREF_LN, 'tab'=>0, 'type'=>'text', 'data' => 'str', 'help'=>LAN_VOIEXE_ADMIN_PREF_LN_TIP),
+			'eCustomln'		=> array(
+				'title'	=>	LAN_VOIEXE_ADMIN_PREF_ECLN, 
+				'type'	=>	'boolean',
+				'data' 	=>	'str',
+				'help'	=>	LAN_VOIEXE_ADMIN_PREF_ECLN_TIP,
+				'tab'	=>	0,
+			),
+			'linkName'		=> array(
+				'title'	=>	LAN_VOIEXE_ADMIN_PREF_LN,
+				'type'	=>	'text',
+				'data' 	=>	'str',
+				'help'	=>	LAN_VOIEXE_ADMIN_PREF_LN_TIP,
+				'tab'	=>	0,
+			),
+			'voice_dmtitle'		=> array(
+				'title'	=>	LAN_VOIEXE_ADMIN_PREF_DMT,
+				'type'	=>	'text',
+				'data' 	=>	'str',
+				'help'	=>	LAN_VOIEXE_ADMIN_PREF_DMT_TIP,
+				'tab'	=>	1,
+			),
+			'voice_did'		=> array(
+				'title'	=>	LAN_VOIEXE_ADMIN_PREF_DID,
+				'type'	=>	'dropdown',
+				'data' 	=>	'str',
+				'help'	=>	LAN_VOIEXE_ADMIN_PREF_DID_TIP,
+				'tab'	=>	1,
+			),
+			'voice_dviewclass'		=> array(
+				'title'	=>	LAN_VOIEXE_ADMIN_PREF_DVC,
+				'type'	=>	'userclass',
+				'data' 	=>	'str',
+				'help'	=>	LAN_VOIEXE_ADMIN_PREF_DVC_TIP,
+				'tab'	=>	1,
+			),
 		); 
 
-	
+		private $discordServer = array();
+		
 		public function init()
 		{
 			// Set drop-down values (if any). 
 			$this->fields['voice_type']['writeParms'] = array(LAN_VOI_SELECT, LAN_VOI_TYPE_MUM, LAN_VOI_TYPE_TS3, LAN_VOI_TYPE_VEN, LAN_VOI_TYPE_DIS); // Example Drop-down array. 
 			$this->fields['voice_type_version']['writeParms'] = array(LAN_VOI_SELECT, LAN_VOI_MUM_V1, LAN_VOI_MUM_V2); // Example Drop-down array. 
 			$this->fields['voice_listname']['writeParms'] = array(LAN_VOI_SELECT, LAN_VOI_LU_STYPE, LAN_VOI_LU_SNAME);
-			$this->fields['voice_discord_theme']['writeParms'] = array(LAN_VOI_DI_LIGHT, LAN_VOI_DI_DARK);	
+			$this->fields['voice_discord_theme']['writeParms'] = array(LAN_VOI_DI_LIGHT, LAN_VOI_DI_DARK);
+			
+			// For Discord Menu
+			$this->discordServer[0] = "None Selected"; // TODO - LAN MAYBE?
+			//if($sql->gen("SELECT voice_id,voice_name,voice_type FROM `#voice_exesystem` WHERE voice_type = '4'"))
+			$disParmsQ = "SELECT voice_id,voice_name,voice_type FROM `#voice_exesystem` WHERE voice_type = 4";
+			$rows = e107::getDB()->retrieve($disParmsQ, true);
+			foreach($rows as $row)
+			{
+				$this->discordServer[$row['voice_id']] = $row['voice_name'];
+			}
+			$this->prefs['voice_did']['writeParms']['optArray'] = $this->discordServer;
 		}
 		
 		// Infomarion Section 

@@ -133,6 +133,12 @@ define("LAN_VOIEXE_ADMIN_PREF_ECLN", "Enable Custom Link Name");
 define("LAN_VOIEXE_ADMIN_PREF_LN", "Link Name");
 define("LAN_VOIEXE_ADMIN_PREF_ECLN_TIP", "Enable, or Disable Custom Link Name, Disable will show link name 'Voice'");
 define("LAN_VOIEXE_ADMIN_PREF_LN_TIP", "Default is Voice, if enable you can change the name as you want");
+define("LAN_VOIEXE_ADMIN_PREF_DMT", "Menu Title");
+define("LAN_VOIEXE_ADMIN_PREF_DMT_TIP", "The caption of your menu.");
+define("LAN_VOIEXE_ADMIN_PREF_DID", "Server");
+define("LAN_VOIEXE_ADMIN_PREF_DID_TIP", "Select which server to display in the menu. (Must be discord server)");
+define("LAN_VOIEXE_ADMIN_PREF_DVC", "Menu Viewclass");
+define("LAN_VOIEXE_ADMIN_PREF_DVC_TIP", "Select the userclass that can view your menu. (Everyone by default)");
 
 
 ?>

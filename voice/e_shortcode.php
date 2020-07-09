@@ -735,6 +735,49 @@ class voice_shortcodes extends e_shortcode
 			
 		return $text;
 	}
+	
+	
+	function sc_voice_discordmenu($parm='')
+	{
+		$sql = e107::getDB();
+		$pref = e107::getPlugPref('voice');
+		$voiceDiscordParamsID = $pref['voice_did'];
+		
+		if($sql->select("voice_exesystem", "voice_id, voice_name, voice_type, voice_discord_id, voice_discord_theme, voice_discord_width, voice_discord_height, voice_discord_transp, voice_discord_frameborder", "voice_id LIKE '". $voiceDiscordParamsID."%'"))
+		{
+			while($row = $sql->db_Fetch())
+			{
+				$sID = $row['voice_discord_id'];
+				$disTheme = $row['voice_discord_theme'];
+				$disFrameBorder = $row['voice_discord_frameborder'];
+				$disWidth = $row['voice_discord_width'];
+				$disHeight = $row['voice_discord_height'];
+				$disTransp = $row['voice_discord_transp'];
+				
+				if($disTheme == 0)
+				{
+					$sTheme = "light";
+				}
+				elseif($disTheme == 1)
+				{
+					$sTheme = "dark";
+				}
+				
+				if($disTransp == 0)
+				{
+					$sTransp = "false";
+				}
+				elseif($disTransp == 1)
+				{
+					$sTransp = "true";
+				}
+				
+				$sType = "https://";
+				$text .= '<iframe src="'.$sType.'discordapp.com/widget?id='.$sID.'&theme='.$sTheme.'&username='.$userName.'" width="'.$disWidth.'" height="'.$disHeight.'" allowtransparency="'.$sTransp.'" frameborder="'.$disFrameBorder.'"></iframe>';
+			}
+		}
+		return e107::getParser()->toHtml($text, true);
+	}
 }
 
 ?>
