@@ -25,6 +25,7 @@
     url("fonts/voice-exe-font.svg#untitled-font-3") format("svg");
 }
 
+/*
 [data-icon]:before {
   font-family: "voice-exe-font" !important;
   content: attr(data-icon);
@@ -37,6 +38,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+*/
 
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
